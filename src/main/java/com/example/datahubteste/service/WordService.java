@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class WordService {
@@ -20,6 +21,11 @@ public class WordService {
 
     public List<Word> findAll() {
         List<Word> records = repo.findAll();
-        return record;
+        return records;
+    }
+
+    public Word findById(UUID id) throws Throwable {
+        Optional<Word> record = repo.findById(id);
+        return record.orElseThrow(null);
     }
 }
