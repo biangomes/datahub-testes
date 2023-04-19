@@ -28,8 +28,8 @@ public class WordServiceTest extends ApplicationConfigTest {
     private WordService service;
 
     @Test
-    @DisplayName("Deve retornar todas as words registradas no banco")
-    public void deve_retornar_todas_as_words() {
+    @DisplayName("Should return all words stored in the database")
+    public void shoud_return_all_words() {
         List<Word> records = new ArrayList<>();
 
         Mockito.when(repo.findAll()).thenReturn(records);
@@ -39,8 +39,8 @@ public class WordServiceTest extends ApplicationConfigTest {
 
 
     @Test
-    @DisplayName("Deve retornar uma word por ID")
-    public void deve_retornar_uma_word_por_id() throws Throwable {
+    @DisplayName("Should return a word by ID")
+    public void should_return_word_by_id() throws Throwable {
         Word word = new Word();
         word.setId(UUID.randomUUID());
 
@@ -48,6 +48,16 @@ public class WordServiceTest extends ApplicationConfigTest {
         final Optional<Word> expectedWord = Optional.ofNullable(service.findById(word.getId()));
 
         Assertions.assertThat(expectedWord).isNotNull();
+    }
 
+    @Test
+    @DisplayName("Should store a word given as URI parameter in the database")
+    public void should_store_a_word_in_the_database() {
+        Word word = new Word();
+
+        word.setId(UUID.randomUUID());
+        word.setWord("Hope");
+
+        Mockito.when(repo.save(word)).thenReturn(word);
     }
 }

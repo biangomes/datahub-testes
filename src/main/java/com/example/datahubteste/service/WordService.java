@@ -28,4 +28,9 @@ public class WordService {
         Optional<Word> record = repo.findById(id);
         return record.orElseThrow(null);
     }
+
+    public Optional<Word> save(Word word) {
+        Optional<Word> record = Optional.of(repo.save(word));
+        return record;
+    }
 }
