@@ -29,8 +29,14 @@ public class WordService {
         return record.orElseThrow(null);
     }
 
-    public Optional<Word> save(Word word) {
-        Optional<Word> record = Optional.of(repo.save(word));
+    public Word save(Word word) {
+        Word record = repo.save(word);
         return record;
+    }
+
+    public String invertWord(String word) {
+        StringBuilder stringBuilder = new StringBuilder((CharSequence) word);
+        String reverseWord = stringBuilder.reverse().toString();
+        return reverseWord;
     }
 }

@@ -44,6 +44,7 @@ public class WordServiceTest extends ApplicationConfigTest {
         Word word = new Word();
         word.setId(UUID.randomUUID());
 
+
         given(repo.findById(word.getId())).willReturn(Optional.of(word));
         final Optional<Word> expectedWord = Optional.ofNullable(service.findById(word.getId()));
 
