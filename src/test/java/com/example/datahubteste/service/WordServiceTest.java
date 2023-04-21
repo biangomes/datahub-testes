@@ -41,7 +41,7 @@ public class WordServiceTest extends ApplicationConfigTest {
     @Test
     @DisplayName("Should return a word by ID")
     public void should_return_word_by_id() throws Throwable {
-        Word word = new Word();
+        Word word = new Word("Hope");
         word.setId(UUID.randomUUID());
 
 
@@ -54,10 +54,9 @@ public class WordServiceTest extends ApplicationConfigTest {
     @Test
     @DisplayName("Should store a word given as URI parameter in the database")
     public void should_store_a_word_in_the_database() {
-        Word word = new Word();
+        Word word = new Word("Hope");
 
         word.setId(UUID.randomUUID());
-        word.setWord("Hope");
 
         Mockito.when(repo.save(word)).thenReturn(word);
     }
