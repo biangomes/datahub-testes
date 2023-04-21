@@ -16,9 +16,14 @@ public class WordController {
     @Autowired
     private WordService service;
 
-    @PostMapping("/{word}")
-    public ResponseEntity<Word> insert(@RequestBody Word word) {
-        Word record = service.save(word);
-        return new ResponseEntity<>(record, HttpStatus.CREATED);
+    @PostMapping("")
+    public Word word(@RequestBody String word) {
+        return new Word(service.invertWord(word));
     }
+
+//    @PostMapping("/{word}")
+//    public ResponseEntity<Word> insert(@RequestBody Word word) {
+//        Word record = service.save(word);
+//        return new ResponseEntity<>(record, HttpStatus.CREATED);
+//    }
 }

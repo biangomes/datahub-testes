@@ -16,6 +16,10 @@ public class Word {
     @Column(name="word")
     private String word;
 
+    public Word(String word) {
+        this.word = word;
+    }
+
     public UUID getId() {
         return id;
     }
