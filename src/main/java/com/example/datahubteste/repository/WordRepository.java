@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface WordRepository extends JpaRepository<Word, UUID> {
+public interface WordRepository extends JpaRepository<Word, Long> {
 }

@@ -24,7 +24,7 @@ public class WordService {
         return records;
     }
 
-    public Word findById(UUID id) throws Throwable {
+    public Word findById(Long id) throws Throwable {
         Optional<Word> record = repo.findById(id);
         return record.orElseThrow(null);
     }

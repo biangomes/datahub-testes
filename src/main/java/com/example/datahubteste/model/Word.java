@@ -1,9 +1,6 @@
 package com.example.datahubteste.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
@@ -11,20 +8,28 @@ import java.util.UUID;
 public class Word {
 
     @Id
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @Column(name="word")
     private String word;
+
+    public Word(){}
+
+    public Word(Long id, String word) {
+        this.id = id;
+        this.word = word;
+    }
 
     public Word(String word) {
         this.word = word;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
