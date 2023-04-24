@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/word")
@@ -39,7 +36,7 @@ public class WordController {
         return new ResponseEntity<>(record, HttpStatus.OK);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/update/")
     public ResponseEntity<Word> update(@RequestBody Word word) {
         Word record = service.save(word);
         return new ResponseEntity<>(record, HttpStatus.CREATED);
@@ -50,6 +47,4 @@ public class WordController {
         service.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
-
 }

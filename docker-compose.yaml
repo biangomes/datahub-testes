@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   app:
-    image: datahubtest
+    image: datahubteste
     ports:
       - "80:80"
   database:
