@@ -34,6 +34,10 @@ public class WordService {
         return record;
     }
 
+    public void delete(Long id) {
+        repo.deleteById(id);
+    }
+
     public String invertWord(String word) {
         StringBuilder stringBuilder = new StringBuilder((CharSequence) word);
         String reverseWord = stringBuilder.reverse().toString();
